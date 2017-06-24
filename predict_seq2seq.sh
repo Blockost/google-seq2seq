@@ -1,18 +1,16 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 
-export VOCAB_SOURCE=${HOME}/nmt_data/toy_reverse/train/vocab.sources.txt
-export VOCAB_TARGET=${HOME}/nmt_data/toy_reverse/train/vocab.targets.txt
-export TRAIN_SOURCES=${HOME}/nmt_data/toy_reverse/train/sources.txt
-export TRAIN_TARGETS=${HOME}/nmt_data/toy_reverse/train/targets.txt
-export DEV_SOURCES=${HOME}/nmt_data/toy_reverse/dev/sources.txt
-export DEV_TARGETS=${HOME}/nmt_data/toy_reverse/dev/targets.txt
+export DIR=${HOME}/dev/MovieIdeasGenerator
+export DATA_DIR=${DIR}/data
+export SOURCES=${DATA_DIR}/predict_sources.txt
 
-export DEV_TARGETS_REF=${HOME}/nmt_data/toy_reverse/dev/targets.txt
-export TRAIN_STEPS=1000
-export MODEL_DIR=${TMPDIR:-/tmp}/nmt_tutorial
-
-export PRED_DIR=${MODEL_DIR}/pred
+export MODEL_DIR=${DATA_DIR}/logs
+export PRED_DIR=${DATA_DIR}/preds
 mkdir -p ${PRED_DIR}
+
+
+export TRAIN_STEPS=1000
+
 
 python -m bin.infer \
   --tasks "
@@ -22,6 +20,6 @@ python -m bin.infer \
     class: ParallelTextInputPipeline
     params:
       source_files:
-        - $DEV_SOURCES" \
+        - $SOURCES" \
   >  ${PRED_DIR}/predictions.txt
 

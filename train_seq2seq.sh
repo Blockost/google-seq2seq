@@ -1,10 +1,10 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 
-export DIR=${HOME}/Dev/MovieIdeasGenerator/data
-export VOCAB_SOURCE=${DIR}/vocab
-export VOCAB_TARGET=${DIR}/vocab
-export TRAIN_SOURCES=${DIR}/overviews
-export TRAIN_TARGETS=${DIR}/titles
+export DIR=${HOME}/dev/MovieIdeasGenerator/data
+export VOCAB_SOURCE=${DIR}/vocab.txt
+export VOCAB_TARGET=${DIR}/vocab.txt
+export TRAIN_SOURCES=${DIR}/overviews.txt
+export TRAIN_TARGETS=${DIR}/titles.txt
 #export DEV_SOURCES=${HOME}/nmt_data/toy_reverse/dev/sources.txt
 #export DEV_TARGETS=${HOME}/nmt_data/toy_reverse/dev/targets.txt
 
